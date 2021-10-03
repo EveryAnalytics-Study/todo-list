@@ -44,10 +44,10 @@ const reducer = (state: TodoState, action: Action): TodoState => {
         // todos:
       };
     case 'DELETE_TODO':
+      api.deleteTodo(action.id);
       return {
         ...state,
-        // TODO: todo가 삭제 되었을 때 action.id 값을 이용하여 todos 가 삭제 되도록 수정하기
-        // todos:
+        todos: api.getTodos(),
       };
     case 'TOGGLE_COMPLETED':
       return {
