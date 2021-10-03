@@ -19,11 +19,15 @@ export default function TodoItem({ todo }: TodoItemProps) {
     dispatch({ type: 'TOGGLE_COMPLETED', id });
   };
 
+  const handleDelete = () => {
+    dispatch({ type: 'DELETE_TODO', id });
+  };
+
   return (
     <Container>
       <CheckBox checked={completed} onClick={handleClick} />
       <Content checked={completed}>{content}</Content>
-      <Delete />
+      <Delete onClick={handleDelete} />
     </Container>
   );
 }
